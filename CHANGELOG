@@ -1,0 +1,70 @@
+CHANGELOG for dprk_pull
+
+
+Note I'm a little late getting this file started.  It probably should've been in the first code upload
+but better late than never so we'll start with changes from version 0.03
+
+Apr 18:
+Changed the README and INSTALL files to not duplicate information.  I've left the dependency
+listing in both files just because it is really important that the dependencies be met.  
+Also, added a CHANGELOG file. ;)
+
+
+Jun 10
+WOW haven't been keeping up with this have I?  Okay, re-did how the notifications were
+done using kdialog this time to produce a progress bar.
+
+I think there were some other changes that I can't think of now.  Check the news section on 
+the project's Sourceforge pages for details
+
+Today I just made a minor change changing the name of the final news file that gets loaded
+into kwrite from 3newsfile.txt to KCNA_News.txt.
+
+June 13th
+There were some changes made on the KNS/KCNA's side to the formating and file names of their files
+This version accounts for that.  One of the changes was that the file e-news.htm had been renamed
+to e-news.html.  There were also some formatting changes in that file that are accounted for now.
+
+In addition to that there's now a commented line in dprk_pull.sh that if uncommented
+will launch firefox and display a Google translated (to English) version of the KCNA's/KNS's images
+page located at http://kns-photo.com/index.php
+
+Jan 18 2010
+Did some clean up in the main script.  All the commented out lines related to older ways
+of doing the notification calls were making the file cluttered.  I also standardised the
+line spacing and added some comments at the beginning about the two features disabled by
+default. (i.e., the kcna images display and the direct piping to festival).
+
+Apr. 22 2010
+Added Copyright notices in all files that didn't have one.  This does not in
+anyway change the licence that dprkpull is licenced under.  For more info on
+that see COPYING.  For more information on why I'm doing this listen to FLOSS
+Weekley 117: Bob Jacobsen.  That is an interview with a guy who did some model
+train software and ended up in a multi-year legal battle!  --KL
+
+Oh, and for the record...
+############################################################################
+#    Copyright (C) 2009 by Kevin Lucas                                     #
+#    klucas@teksavvy.com                                                   #
+#                                                                          #
+#    This program is free software; you can redistribute it and#or modify  #
+#    it under the terms of the GNU General Public License as published by  #
+#    the Free Software Foundation; either version 2 of the License, or     #
+#    (at your option) any later version.                                   #
+#                                                                          #
+#    This program is distributed in the hope that it will be useful,       #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of        #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+#    GNU General Public License for more details.                          #
+#                                                                          #
+#    You should have received a copy of the GNU General Public License     #
+#    along with this program; if not, write to the                         #
+#    Free Software Foundation, Inc.,                                       #
+#    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
+############################################################################
+
+
+I also changed the last line in the install script which suggested that
+running ./dprk_pull.sh would launch the program when really the whole point of
+running the install script was to put the whole thing into ~/kcna.  Sorry, my
+bad. :) KL

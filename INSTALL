@@ -1,0 +1,61 @@
+Nothing much to say here just keep the files in the same directory
+make the dprk_pull.sh and the kcna-parse-links.php files executable:
+
+	chmod u+x ./dprk_pull.sh
+        chmod u+x ./kcna-parse-links.php
+
+The script also is expecting a writable ~/kcna directory. 
+
+TODO: write an installer script to check for the dependencies and create the ~/kcna directory.
+
+then run dprk_pull.sh
+
+./dprk_pull.sh
+
+
+
+DEPENDENCIES:
+There are a few dependencies:
+        awk
+        bash
+        kwrite
+        php
+        sed
+        wget
+
+
+TODO:
+        Have it pull the articles in the right order.  Seems to pull them from last to first now.
+
+        Get it to remove the big gaps in between the articles.  Not a huge deal as the TTS just
+        skips over them but it'd be nice.
+
+        Could get it to pipe straight into festival for tts rather than open in kwrite but I like
+        the visual elements of the KDE Text-to-Speech Manager (KTTSMgr).  If the output could go
+        straight into there that'd be good.
+
+	Find a way to stop it pulling the Spanish lanugage articles.
+
+
+DISCLAIMER
+I have nothing to do with the KCNA or DPRK (North Korea).
+
+############################################################################
+#    Copyright (C) 2009 by Kevin Lucas                                     #
+#    yu210148@gmail.com                                                    #
+#                                                                          #
+#    This program is free software; you can redistribute it and#or modify  #
+#    it under the terms of the GNU General Public License as published by  #
+#    the Free Software Foundation; either version 2 of the License, or     #
+#    (at your option) any later version.                                   #
+#                                                                          #
+#    This program is distributed in the hope that it will be useful,       #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of        #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+#    GNU General Public License for more details.                          #
+#                                                                          #
+#    You should have received a copy of the GNU General Public License     #
+#    along with this program; if not, write to the                         #
+#    Free Software Foundation, Inc.,                                       #
+#    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
+############################################################################

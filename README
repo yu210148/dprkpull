@@ -1,0 +1,91 @@
+A while ago the KCNA (www.kcna.co.jp) changed from putting their 
+English language news articles
+in one big file to several little ones.  I wrote this script to recombine them into one file for
+reading by a Text To Speech (TTS) program.
+
+INSTAL:
+To install run the install.sh script.  This script will remove an existing ~/kcna directory to get
+rid of any old versions that are installed.  It will then create a blank ~/kcna directory and 
+copy the necessary files to it.
+
+TODO: MAKE THE INSTALLER SCRIPT CHECK FOR DEPENDENCIES
+
+USAGE:
+To use just run the ~/kcna/dprk_pull.sh file.  NOTE: you may have to change the permissions on it to make it executable:
+
+	chmod u+x ./dprk_pull.sh
+
+The php file needs to be executable as well.
+
+	chmod u+x ./kcna-parse-links.php
+
+
+
+DEPENDENCIES:
+There are a few dependencies:
+	awk
+	bash
+	kwrite
+	php
+	sed
+	wget
+	dos2unix
+	kdialog
+	firefox (optional) 
+	
+OPTIONS:
+There is now a commented line in dprk_pull.sh that if uncommented
+will launch firefox and display a Google translated (to English) version of the KCNA's/KNS's images
+page located at http://kns-photo.com/index.php
+
+
+TODO:
+	Have it pull the articles in the right order.  Seems to pull them from last to first now.
+
+	Get it to remove the big gaps in between the articles.  Not a huge deal as the TTS just
+	skips over them but it'd be nice. --Done March 7 2009 
+
+	Could get it to pipe straight into festival for tts rather than open in kwrite but I like
+	the visual elements of the KDE Text-to-Speech Manager (KTTSMgr).  If the output could go 
+	straight into there that'd be good.
+
+	Find a way to have it stop pulling the Spanish lanugage articles.
+
+	I'm not really happy with what I'm doing with xmessage but it 
+	was the easiest way to get informational messages to the user
+	if the user is running it (as I do) from a graphical icon in
+	KDE (or presumably GNOME for that matter).  I'm open to
+	suggestions on how this could be done better.
+		Update on this: I've been playing around with Qt4 and have replaced
+		xmessage with Qt windows that display the notifications.
+		The good news is they look better than the xmessage windows.  The bad
+		news is that I haven't yet figured out how to make the close on their
+		own.  Or better yet display what's happening in one window as it happens.
+			Okay, got this working nicely with kdialog this morning. 
+			I'll leave the previous ways of doing this commented in the script so 
+			I can look back and laugh at myself. :)
+			
+
+DISCLAIMER
+I have nothing to do with the KCNA or the DPRK (North Korea).
+
+
+############################################################################
+#    Copyright (C) 2009 by Kevin Lucas                                     #
+#    yu210148@gmail.com                                                    #
+#                                                                          #
+#    This program is free software; you can redistribute it and#or modify  #
+#    it under the terms of the GNU General Public License as published by  #
+#    the Free Software Foundation; either version 2 of the License, or     #
+#    (at your option) any later version.                                   #
+#                                                                          #
+#    This program is distributed in the hope that it will be useful,       #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of        #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+#    GNU General Public License for more details.                          #
+#                                                                          #
+#    You should have received a copy of the GNU General Public License     #
+#    along with this program; if not, write to the                         #
+#    Free Software Foundation, Inc.,                                       #
+#    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
+############################################################################
