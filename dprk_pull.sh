@@ -37,9 +37,9 @@
 # than from the user's home directory.  I'm doing this so that I can 
 # make an installable package out of it.
 
-	dbusRef=`kdialog --title "DPRK Pull" --progressbar "DPRK Pull Changing Directory" 7` 
-	qdbus $dbusRef Set "" "value" 1
-	qdbus $dbusRef setLabelText "<b><big>DPRK Pull</big></b><BR><i>Changing Directory</i>" 
+#	dbusRef=`kdialog --title "DPRK Pull" --progressbar "DPRK Pull Changing Directory" 7` 
+#	qdbus $dbusRef Set "" "value" 1
+#	qdbus $dbusRef setLabelText "<b><big>DPRK Pull</big></b><BR><i>Changing Directory</i>" 
 
 #cd ~/kcna
 mkdir /tmp/kcna
@@ -49,25 +49,25 @@ mkdir /tmp/kcna
 #e-news.htm.  I'm not sure that this is a permenent change or not 
 #I've changed the code here to reflect the .html but I may have to
 #change it back if this new file name is not kept by the people at kcna
-	qdbus $dbusRef Set "" "value" 2
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Getting http://www.kcna.co.jp/e-news.html</i>		"
+#	qdbus $dbusRef Set "" "value" 2
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Getting http://www.kcna.co.jp/e-news.html</i>		"
 
 wget -O /tmp/kcna/e-news.html http://www.kcna.co.jp/e-news.html
 
-	qdbus $dbusRef Set "" "value" 3
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Dropping Spanish</i>		"
+#	qdbus $dbusRef Set "" "value" 3
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Dropping Spanish</i>		"
 
 /usr/bin/drop_spanish.php > /tmp/kcna/2e-news.html
 rm -rf /tmp/kcna/e-news.html
 mv /tmp/kcna/2e-news.html /tmp/kcna/e-news.html
 
-	qdbus $dbusRef Set "" "value" 4
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Looking for links in e-news.html</i>		" 
+#	qdbus $dbusRef Set "" "value" 4
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Looking for links in e-news.html</i>		" 
 
 cat /tmp/kcna/e-news.html | grep href > /tmp/kcna/links.txt
 
-	qdbus $dbusRef Set "" "value" 5
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Editing with sed and awk...</i>		" 
+#	qdbus $dbusRef Set "" "value" 5
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Editing with sed and awk...</i>		" 
 
 sed -f /usr/lib/edit.sed /tmp/kcna/links.txt > /tmp/kcna/2links.txt
 awk -f /usr/lib/edit.awk /tmp/kcna/2links.txt > /tmp/kcna/3links.txt
@@ -76,14 +76,14 @@ sed -f /usr/lib/rm_p_tags.sed /tmp/kcna/4links.txt > /tmp/kcna/5links.txt
 rm -rf /tmp/kcna/4links.txt
 mv /tmp/kcna/5links.txt /tmp/kcna/4links.txt
 
-	qdbus $dbusRef Set "" "value" 6
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Parsing Links and getting stores...</i>		" 
+#	qdbus $dbusRef Set "" "value" 6
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Parsing Links and getting stores...</i>		" 
 
 /usr/bin/kcna-parse-links.php
 
 
-	qdbus $dbusRef Set "" "value" 7	
-	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Final editing in progress...</i>		" 
+#	qdbus $dbusRef Set "" "value" 7	
+#	qdbus $dbusRef setLabelText "		<b><big>DPRK Pull</big></b><br><i>Final editing in progress...</i>		" 
 
 #Language Check has to happen here before all the articles
 #Get smashed into the one newsfile.txt
@@ -96,10 +96,10 @@ sed -f /usr/lib/killblanklines.sed /tmp/kcna/2newsfile.txt > /tmp/kcna/3newsfile
 #Change the name of 3newsfile.txt to KCNA_News.txt
 mv /tmp/kcna/3newsfile.txt /tmp/kcna/KCNA_News.txt
 
-	qdbus $dbusRef close
+#	qdbus $dbusRef close
 
 # Comment out the line below to stop it pulling up a google translated (to english) version of the KNS/KCNA images page 
-firefox "http://translate.google.com/translate?js=n&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fkns-photo.com%2Findex.php&sl=auto&tl=en&history_state0=" &
+#firefox "http://translate.google.com/translate?js=n&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fkns-photo.com%2Findex.php&sl=auto&tl=en&history_state0=" &
 
 # Comment out the line below to stop festival tts reading the news aloud
 #festival --tts ~/kcna/KCNA_News.txt &
@@ -144,7 +144,7 @@ mv /tmp/kcna/KCNA_News.ogg /tmp/kcna/KCNA_News-$MODDATE.ogg
 #mv ~/kcna/*.ogg ~/music/kcna/
 
 
-kdialog --passivepopup '<b><big>DPRK Pull</big></b><br><i>Cleaning up</i>' 2 &
+#kdialog --passivepopup '<b><big>DPRK Pull</big></b><br><i>Cleaning up</i>' 2 &
 rm -rf /tmp/kcna/*.html
 rm -rf /tmp/kcna/*.txt
 rm -rf /tmp/kcna/*.htm
@@ -154,7 +154,10 @@ rm -rf /tmp/kcna/*.html.3
 rm -rf /tmp/kcna/*.wav
 
 #Play the .ogg file
-mplayer /tmp/kcna/KCNA_News-$MODDATE.ogg
+#mplayer /tmp/kcna/KCNA_News-$MODDATE.ogg
+
+#move the .ogg file to the web server directory
+mv /tmp/kcna/KCNA_News-$MODDATE.ogg /var/www/dprkpull/
 
 #Remove when done
 rm -rf /tmp/kcna
