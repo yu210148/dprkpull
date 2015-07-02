@@ -68,3 +68,9 @@ I also changed the last line in the install script which suggested that
 running ./dprk_pull.sh would launch the program when really the whole point of
 running the install script was to put the whole thing into ~/kcna.  Sorry, my
 bad. :) KL
+
+Aug 30 2011 -- Tidied up the spanish detection so now it's no longer relying on the 
+depreciated Google Translate API.  It's cutting out the spanish stories more
+reliably now.  Also changed the default configuration to include reading the
+stories aloud via festival and opening firefox with the picture page from them open 
+piped through Google's online translation.

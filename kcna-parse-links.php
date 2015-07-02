@@ -1,5 +1,6 @@
 #!/usr/bin/php
-
+<?php
+/*
 ############################################################################
 #    Copyright (C) 2009 by Kevin Lucas                                     #
 #    yu210148@gmail.com                                                    #
@@ -19,15 +20,18 @@
 #    Free Software Foundation, Inc.,                                       #
 #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
 ############################################################################
+*/
+// require 'check_language.php';
 
-
-<?php
-$command = "cat ~/kcna/4links.txt";
+$command = "cat /tmp/kcna/4links.txt";
 exec($command, $output);
 
 foreach ($output as $line){
-	$subCommand = "wget $line";	
+	$subCommand = "wget -P /tmp/kcna/ $line";	
 	exec($subCommand, $subOutput);
 }
+
+//$fileNames = get_file_names();
+//check_language($fileNames);
 
 ?>

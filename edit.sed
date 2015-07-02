@@ -34,5 +34,10 @@ s/<\/b>//g
 s/<\/div>//g
 s/width="661//g
 s/<br>//g
-s/item\/2010\/201001\/news01\/20100101-08ee\.html//g
+s/item\/2011\/201101\/news01\/20110101-08ee\.html//g
 s/item\/2010\/201001\/news11\/20100111-03ee\.html//g
+s/<font//g
+s/color=\"red//g
+s/\&\#x30FB\;<\/font>//g
+s/size=\"4//g
+s/<font>//g

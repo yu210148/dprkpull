@@ -1,3 +1,6 @@
+#!/usr/bin/php
+<?php
+/*
 ############################################################################
 #    Copyright (C) 2009 by Kevin Lucas                                     #
 #    yu210148@gmail.com                                                    #
@@ -17,17 +20,28 @@
 #    Free Software Foundation, Inc.,                                       #
 #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
 ############################################################################
+*/
 
-s/<p>//g
-s/>//g
-/colspan="2$/d
-/<font$/d
-/East$/d
-/color=\"\#696969/d
-/20120101-15ee\.html/d
-/20111231-01ee\.html/d
-/20111231-02ee\.html/d
-/20111231-05ee\.html/d
-/20111229-10ee\.html/d
-/20111228-36ee\.html/d
-/20120105-52ee\.html/d
+$command = "cat /tmp/kcna/e-news.html";
+exec($command, $output);
+
+// so each line of the file is now in the output array
+// what I want to do is go though and find the line that
+// has the string "Spanish-speaking People" in it then drop 
+// that line and everything after that line
+$stringToMatch = "Spanish-speaking People";
+
+foreach ($output as $line){
+	if (substr_count($line, $stringToMatch) >= 1){
+	   // if the counted number of times that the pharase "Spanish-speaking People"
+	   // is found in the line is one or more then stop right here
+	   break;
+	} else {
+	   // otherwise continue outputting the lines
+	  print "$line\n";
+	} // end else
+} // end foreach
+
+
+
+

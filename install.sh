@@ -23,7 +23,7 @@
 if [ ! -f /usr/bin/php ]
     then echo "Unable to find php please install php."
 # Check for sed
-elif [ ! -f /usr/bin/sed ]
+elif [ ! -f /bin/sed ]
     then echo "Unable to find sed please install sed."
 # Check for awk
 elif [ ! -f /usr/bin/awk ]
