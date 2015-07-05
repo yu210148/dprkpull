@@ -1,7 +1,6 @@
 <?php
 function clean_up(){
-    $todaysDate = date('Y-m-d');
-    $audioFileName = "KCNA_News-" . $todaysDate . ".ogg";
+    $audioFileName = "KCNA_News-*.ogg";
     $command = "rm -rf $audioFileName";
     $command = escapeshellcmd($command);
     exec($command);
